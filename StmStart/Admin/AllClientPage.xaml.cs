@@ -43,6 +43,6 @@ namespace StmStart.Admin
         {
             var Client = AllClient.SelectedValue as Client;
             ClientFrame.Navigate(new ClientPage(Client));
-        }
+        } 
     }
 }
