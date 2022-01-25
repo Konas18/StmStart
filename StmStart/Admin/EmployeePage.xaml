@@ -1,0 +1,81 @@
+﻿<Page x:Class="StmStart.Admin.EmployeePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+      xmlns:local="clr-namespace:StmStart"
+      mc:Ignorable="d" 
+      d:DesignHeight="960" d:DesignWidth="1920"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+      Title="">
+
+    <Grid Background="#d8d8f2" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Column="0" Grid.ColumnSpan="4" Grid.RowSpan="7" MaxHeight="900" VerticalAlignment="Top"  Height="836" Margin="213,30,10,0" >
+
+            <Border Margin="0 10 0 10" Height="54"  Background="LightGreen" CornerRadius="3">
+                <TextBlock FontSize="28" FontFamily="Arial bold" Text="Сотруднк" Background="LightGreen" Foreground ="Black"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Border>
+
+            <StackPanel Orientation="Horizontal" >
+                <TextBox x:Name="PhoneBox" materialDesign:HintAssist.Hint="Телефон" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Background="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="630" Height="60" TextWrapping="Wrap" Cursor="IBeam" FontFamily="Arial bold" FontSize="25" TextChanged="textBox_OnTextChanged" MaxLength="11"/>
+
+            </StackPanel>
+            <TextBox x:Name="SurnameBox" Foreground="Black" Background="White" materialDesign:HintAssist.Hint="Фамилия" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="630" Height="60" TextWrapping="Wrap" Cursor="IBeam" FontFamily="Arial bold" FontSize="25" Margin="0 18 0 0"/>
+            <TextBox x:Name="NameBox" materialDesign:HintAssist.Hint="Имя" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Background="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="630" Height="60" TextWrapping="Wrap" Cursor="IBeam" FontFamily="Arial bold" FontSize="25" Margin="0 10 0 0"/>
+            <TextBox x:Name="LastnameBox" materialDesign:HintAssist.Hint="Отчество" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Background="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="630" Height="60" TextWrapping="Wrap" Cursor="IBeam" FontFamily="Arial bold" FontSize="25" Margin="0 10 0 0"/>
+            <TextBox x:Name="PasportBox" Foreground="Black" Background="White" materialDesign:HintAssist.Hint="Номер паспорта" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="630" Height="60" TextWrapping="Wrap" Cursor="IBeam" FontFamily="Arial bold" FontSize="25" Margin="0 10 0 0" TextChanged="textBox_OnTextChanged" MaxLength="10"/>
+            <DatePicker x:Name="DateOfBirthBox" materialDesign:HintAssist.Hint="Дата рождения" Background="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="630" Height="60" Cursor="IBeam" FontFamily="Arial bold" FontSize="25" Margin="0 10 0 0"/>
+            <TextBox x:Name="AdresBox" materialDesign:HintAssist.Hint="Адрес" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Background="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="630" Height="60" TextWrapping="Wrap" Cursor="IBeam" FontFamily="Arial bold" FontSize="25" Margin="0 10 0 0"/>
+            <TextBox x:Name="ExperienceBox" materialDesign:HintAssist.Hint="Стаж" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Background="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="630" Height="60" TextWrapping="Wrap" Cursor="IBeam" FontFamily="Arial bold" FontSize="25" Margin="0 10 0 0" TextChanged="textBox_OnTextChanged"/>
+            <ComboBox  materialDesign:HintAssist.Hint="Выберите имя" x:Name="PostCmBox" Background="White" Grid.Row="0" Grid.Column="1" Cursor="IBeam" FontFamily="Arial bold" FontSize="25" Width="630" Height="50"
+				   Margin="0 10 0 0" MaxHeight="50">
+                <ComboBoxItem Content="Врач"/>
+                <ComboBoxItem Content="Мед сестра"/>
+            </ComboBox>
+        </StackPanel>
+        
+        <StackPanel Grid.Column="4" Grid.Row="1" Grid.ColumnSpan="4" Grid.RowSpan="3" MaxHeight="900" VerticalAlignment="Top"   Margin="213,40,10,0" >
+
+            <Border Margin="0 10 0 10" Height="54"  Background="LightGreen" CornerRadius="3">
+                <TextBlock FontSize="28" FontFamily="Arial bold" Text="Входные данные" Background="LightGreen" Foreground ="Black"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Border>
+
+            <TextBox x:Name="LoginBox" Foreground="Black" Background="White" materialDesign:HintAssist.Hint="Логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="630" Height="60" TextWrapping="Wrap" Cursor="IBeam" FontFamily="Arial bold" FontSize="25" Margin="0 18 0 0"/>
+            <PasswordBox x:Name="OldPasswordBox" materialDesign:HintAssist.Hint="Старый пароль" Background="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="630" Height="60"  Cursor="IBeam" FontFamily="Arial bold" FontSize="25" Margin="0 10 0 0"/>
+            <PasswordBox x:Name="NewPasswordBox" materialDesign:HintAssist.Hint="Новый пароль" Background="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="630" Height="60"  Cursor="IBeam" FontFamily="Arial bold" FontSize="25" Margin="0 10 0 0"/>
+            <PasswordBox x:Name="NewRepitPasswordBox" materialDesign:HintAssist.Hint="Повторите пароль" Background="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="630" Height="60"  Cursor="IBeam" FontFamily="Arial bold" FontSize="25" Margin="0 10 0 0"/>
+
+        </StackPanel>
+        
+        <Button x:Name="RemovePasswordBtn" Grid.Column="5" Grid.Row="4" Grid.ColumnSpan="3" Grid.RowSpan="2" Content="Изменить пароль" Width="350" Height="50" FontFamily="Arial Bold" FontSize="30" BorderThickness="2" BorderBrush="White" Background="Green" Cursor="Hand" Foreground="White"  Click="RemovePasswordBtn_Click" />
+
+        <Button x:Name="SaveBtn" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="3" Grid.RowSpan="2" Content="Сохранить" Width="250" Height="50" FontFamily="Arial Bold" FontSize="30" BorderThickness="2" BorderBrush="White" Background="Green" Cursor="Hand" Foreground="White"  Click="SaveBtn_Click" Margin="195,10,195,42"/>
+        <Button x:Name="DeleteBtn" Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="3" Grid.RowSpan="2" Content="Удалить" Width="250" Height="50" FontFamily="Arial Bold" FontSize="30" BorderThickness="2" BorderBrush="White" Background="Green" Cursor="Hand" Foreground="White"  Margin="195,10,195,42"/>
+        <Button x:Name="BackBtn" Grid.Column="3" Grid.Row="6" Grid.ColumnSpan="3" Grid.RowSpan="2" Content="Вернутся" Width="250" Height="50" FontFamily="Arial Bold" FontSize="30" BorderThickness="2" BorderBrush="White" Background="Green" Cursor="Hand" Foreground="White" Click="BackBtn_Click" Margin="195,30,195,42"/>
+        
+
+    </Grid>
+</Page>
