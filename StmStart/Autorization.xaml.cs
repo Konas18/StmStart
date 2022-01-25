@@ -25,17 +25,17 @@ namespace StmStart
                 switch (personal.PostName)
                 {
                     case "Админ":
-                        MainWindow mainWindow1 = new MainWindow();
+                        MainWindow mainWindow1 = new MainWindow(personal);
                         mainWindow1.Show();
                         this.Close();
                         break;
                     case "Врач":
-                        MainWindow mainWindow2 = new MainWindow();
+                        MainWindow mainWindow2 = new MainWindow(personal);
                         mainWindow2.Show();
                         this.Close();
                         break;
                     case "Мед сестра":
-                        MainWindow mainWindow3 = new MainWindow();
+                        MainWindow mainWindow3 = new MainWindow(personal);
                         mainWindow3.Show();
                         this.Close();
                         break;

@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Admin\AppointmentPage.xaml.cs~RF39f2eb70.TMP" />
     <None Remove="Admin\ClientPage.xaml~RF344fc3de.TMP" />
   </ItemGroup>
 

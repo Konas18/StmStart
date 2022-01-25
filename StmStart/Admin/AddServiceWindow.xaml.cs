@@ -10,11 +10,13 @@ namespace StmStart.Admin
     /// </summary>
     public partial class AddServiceWindow : Window
     {
-        private DataGrid dg1;
+        //private DataGrid dg1;
+        private NewAppointmentPage parent1;
+        public decimal Sum { get; private set; }
         public Tooth_History s1;
-        public AddServiceWindow(DataGrid dg)
+        public AddServiceWindow(NewAppointmentPage parent)
         {
-            dg1 = dg;
+            parent1 = parent;
             InitializeComponent();
             WindowState = WindowState.Normal;
             double screenHeight = SystemParameters.FullPrimaryScreenHeight;
@@ -32,16 +34,16 @@ namespace StmStart.Admin
             var s2 = AllService.SelectedValue as Services;
             s1.ToothNumber = 0;
             s1.Services = s2;
-            s1.DateTimeService = DateTime.Now;
+            //s1.DateTimeService = DateTime.Now;
             int[] Tooths = new int[49];
             int[] ServiceId = { 3, 4, 6, 7, 8, 10, 11 };
 
             for (int i = 11; i < 49; i++)
                 if (i == 19 || i == 20 || i == 29 || i == 30 || i == 39 || i == 40)
                     continue;
-                else Tooths[i-11] = i;
+                else Tooths[i - 11] = i;
 
-            Boolean check = false;
+            bool check = false;
 
             for (int i = 0; i < 7; i++)
                 if (ServiceId[i] == s2.ID)
@@ -68,7 +70,9 @@ namespace StmStart.Admin
                         return;
                     }
 
-            dg1.Items.Add(s1);
+            parent1.Add(s1);
+            
+            
             ToothNumberBox.Text = "";
             MessageBox.Show("Услуга добавлена");
         }

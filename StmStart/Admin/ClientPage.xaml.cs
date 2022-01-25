@@ -24,7 +24,8 @@ namespace StmStart.Admin
         private readonly char[] _phonesymb = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
 
         public Page NewAppointmentPage;
-
+        public Window ToothWindow;
+        private readonly Client _client;
 
         public ClientPage(Client client) 
         { 
@@ -42,7 +43,6 @@ namespace StmStart.Admin
             IDmedBox.Text = _client.ID.ToString();
             Medical_historyBox.Text = _client.Medical_history;
         }
-        private readonly Client _client;
         private void textBox_OnTextChanged(object sender, TextChangedEventArgs e)
         {
             var textBox = sender as TextBox;
@@ -92,6 +92,13 @@ namespace StmStart.Admin
         {
             AddPage();
             View.Navigate(NewAppointmentPage);
+        }
+        private void ToothBtnClick(object sender, RoutedEventArgs e)
+        {
+            string[] a = sender.ToString().Split(" ");
+            int toothNumber = int.Parse(a[1]);
+            ToothWindow ToothWin = new ToothWindow(_client, toothNumber);
+            ToothWin.ShowDialog();
         }
     }
 }

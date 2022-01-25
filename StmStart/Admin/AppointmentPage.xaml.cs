@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using StmStart;
+using StmStartBibl;
 
 namespace StmStart.Admin
 {
@@ -24,6 +25,12 @@ namespace StmStart.Admin
         public AppointmentPage()
         {
             InitializeComponent();
+            ShowDoctors();
+            AddDataGridRow();
+        }
+        private void AddDataGridRow()
+        {
+            AllAppointment.ItemsSource = Reception.GetAll();
         }
 
         private void AllAppointment_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -33,7 +40,41 @@ namespace StmStart.Admin
 
         private void UpdateBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            AddDataGridRow();
+            List<Reception> items = new List<Reception>();
+            List<Reception> receptions = Reception.GetAll();
+            if (SortClientSurname.Text != "")
+            {
+                receptions = receptions.Where(r => r.Client.GetFullName.Equals(SortClientSurname.Text)).ToList();
+            }
+            if (SortDoctorSurname.SelectedIndex != -1)
+            {
+                receptions = receptions.Where(r => r.Personal.Surname == SortDoctorSurname.Text).ToList();
+            }
+            if (SortDate.SelectedDate != null)
+            {
+                receptions = receptions.Where(r => r.GetDateOfAppointment.Equals(SortDate.Text)).ToList();
+            }
+            foreach (var reception in receptions)
+            {
+               items.Add(reception.GetReceptionById(reception.ID));
+            }
+            AllAppointment.ItemsSource = items;
+        }
+        private void ShowDoctors()
+        {
+            foreach (var person in Personal.GetAll())
+            {
+                if (person.PostName == "Врач")
+                SortDoctorSurname.Items.Add(person.Surname);
+            }
+        }
+        private void ClearBtn_Click(object sender, RoutedEventArgs e)
+        {
+            SortClientSurname.Text = "";
+            SortDoctorSurname.Text = "";
+            SortDate.Text = "";
+            AddDataGridRow();
         }
     }
 }

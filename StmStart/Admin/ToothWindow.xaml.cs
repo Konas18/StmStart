@@ -1,16 +1,8 @@
-﻿using System;
+﻿using StmStartBibl;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace StmStart.Admin
 {
@@ -19,9 +11,33 @@ namespace StmStart.Admin
     /// </summary>
     public partial class ToothWindow : Window
     {
-        public ToothWindow()
+        private int tn1;
+        private Client _client;
+
+        public ToothWindow(Client client, int tn)
         {
+            _client = client;
+            tn1 = tn;
             InitializeComponent();
+            WindowState = WindowState.Normal;
+            double screenHeight = SystemParameters.FullPrimaryScreenHeight;
+            this.Top = 0;
+            AddDataGridRow();
+        }
+        private void AddDataGridRow()
+        {
+            List<Tooth_History> items = new List<Tooth_History>();
+            List<Tooth_History> toothHistory = Tooth_History.GetAll();
+
+            toothHistory = toothHistory.Where(th => th.ToothNumber == tn1).ToList();
+
+            toothHistory = toothHistory.Where(th => th.Client == _client).ToList();
+
+            foreach (var th in toothHistory)
+            {
+                items.Add(th);
+            }
+            ToothHistory.ItemsSource = items;
         }
     }
 }

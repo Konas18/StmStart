@@ -64,6 +64,15 @@ namespace StmStartBibl
         {
             return db.Personal.Where(a => a.Login == Login && a.Password == Password).FirstOrDefault();
         }
+        public override string GetFullName
+        {
+            get
+            {
+                string temp = $"{Surname} {Name} ";
+                if (Lastname != null) temp += $"{Lastname}";
+                return temp;
+            }
+        }
 
         public static void Save() => db.SaveChanges();
     }

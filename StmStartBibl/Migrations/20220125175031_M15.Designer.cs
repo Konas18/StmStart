@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using StmStartBibl;
@@ -9,9 +10,10 @@ using StmStartBibl;
 namespace StmStartBibl.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20220125175031_M15")]
+    partial class M15
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -206,9 +208,6 @@ namespace StmStartBibl.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<int?>("ClientID")
-                        .HasColumnType("integer");
-
                     b.Property<string>("Complaints")
                         .HasColumnType("text");
 
@@ -231,8 +230,6 @@ namespace StmStartBibl.Migrations
                         .HasColumnType("text");
 
                     b.HasKey("ID");
-
-                    b.HasIndex("ClientID");
 
                     b.HasIndex("PersonalID");
 
@@ -306,9 +303,6 @@ namespace StmStartBibl.Migrations
 
                     b.Property<int?>("ClientID")
                         .HasColumnType("integer");
-
-                    b.Property<DateTime>("DateTimeService")
-                        .HasColumnType("timestamp without time zone");
 
                     b.Property<int?>("ReceptionID")
                         .HasColumnType("integer");
@@ -384,10 +378,6 @@ namespace StmStartBibl.Migrations
 
             modelBuilder.Entity("StmStartBibl.Reception", b =>
                 {
-                    b.HasOne("StmStartBibl.Client", "Client")
-                        .WithMany()
-                        .HasForeignKey("ClientID");
-
                     b.HasOne("StmStartBibl.Personal", "Personal")
                         .WithMany()
                         .HasForeignKey("PersonalID");
@@ -395,8 +385,6 @@ namespace StmStartBibl.Migrations
                     b.HasOne("StmStartBibl.Schedule", "Schedule")
                         .WithMany()
                         .HasForeignKey("ScheduleID");
-
-                    b.Navigation("Client");
 
                     b.Navigation("Personal");
 

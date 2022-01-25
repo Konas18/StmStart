@@ -13,6 +13,7 @@ namespace StmStartBibl
         {
             Database.Migrate();
             Context.AddDb(this);
+
         }
         
         public DbSet<Client> Client { get; set; }

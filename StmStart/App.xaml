@@ -4,8 +4,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:local="clr-namespace:StmStart"
-             StartupUri="Admin/MainWindow.xaml">
-             <!--StartupUri="Autorization.xaml">-->
+             StartupUri="Autorization.xaml">
+
+    <!--StartupUri="Admin/MainWindow.xaml">-->
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

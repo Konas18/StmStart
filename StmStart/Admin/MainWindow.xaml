@@ -34,7 +34,6 @@
         <Button x:Name="AllClientBtn" Grid.Column="1" Margin="15 0 5 0" BorderBrush="Black" Background="LightGreen" Content="Клиенты" FontFamily="Arial bold" FontSize="25" Foreground ="Black" Cursor="Hand" Click="ButtonClickAllClient" Height="50" BorderThickness="2"/>
         <Button x:Name="AppointmentBtn" Grid.Column="2" Margin="15 0 5 0" BorderBrush="Black" Background="LightGreen" Content="Приём" FontFamily="Arial bold" FontSize="25" Foreground ="Black" Cursor="Hand"  Click="ButtonClickAppointment" Height="50" BorderThickness="2"/>
         <Button x:Name="AllEmployeeBtn" Grid.Column="3" Margin="15 0 5 0" BorderBrush="Black" Background="LightGreen" Content="Все сотрудники" FontFamily="Arial bold" FontSize="25" Foreground ="Black" Cursor="Hand"  Click="ButtonClickAllEmployee" Height="50" BorderThickness="2"/>
-        <Button x:Name="AddServiceBtn" Grid.Column="4" Margin="15 0 5 0" BorderBrush="Black" Background="LightGreen" Content="Добавить услугу" FontFamily="Arial bold" FontSize="25" Foreground ="Black" Cursor="Hand"   Height="50" BorderThickness="2"/>
 
         <StackPanel Orientation="Horizontal" Grid.Column="6" Margin="20">
             <TextBlock x:Name="TextBlockEmployeeEnter" FontSize="18" FontFamily="Arial Bold" HorizontalAlignment="Right" TextAlignment="Right" VerticalAlignment="Center" Width="220"/>

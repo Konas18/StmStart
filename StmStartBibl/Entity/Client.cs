@@ -53,7 +53,30 @@ namespace StmStartBibl
                 return Date_of_birth.ToString("d");
             }
         }
+        public class ClientInfo
+        {
+            public int ID { get; set; }
+            public string Surname { get; set; }
+            public string Name { get; set; }
+            public string Lastname { get; set; }
+        }
         public static void Save() => db.SaveChanges();
+        public override string GetFullName
+        {
+            get
+            {
+                string temp = $"{Surname} {Name} ";
+                if (Lastname != null) temp += $"{Lastname}";
+                return temp;
+            }
+        }
+        public static Client GetClientById(int id)
+        {
+            return (from c in db.Client
+                    where c.ID == id
+                    select c).FirstOrDefault();
+        }
+
 
     }
 }

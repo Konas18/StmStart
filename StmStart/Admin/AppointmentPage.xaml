@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:StmStart"
+      xmlns:entity ="clr-namespace:StmStartBibl;assembly=StmStartBibl"
 	  xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       d:DesignHeight="960" d:DesignWidth="1920"
@@ -36,25 +37,21 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Button x:Name="FindBtn"  Grid.Column="6" Grid.Row="0" Grid.RowSpan="2" Margin="2 50 10 0" Content="Найти" BorderBrush="Black" Background="LightGreen" Foreground ="Black" Cursor="Hand" Height="40" FontSize="25"/>
-        <!--<TextBox x:Name="IDmed" materialDesign:HintAssist.Hint="Номер мед. книги" Background="White" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="Wrap" Cursor="IBeam" FontFamily="Arial bold" FontSize="25" Margin="20,0,0,0" />-->
-        <ComboBox  materialDesign:HintAssist.Hint="Фамилия клиента" x:Name="CmBoxClientSureName" Grid.Row="0" Grid.Column="0" FontSize="23"
-				  Background="#ffdadada" Margin="35 0 3 0" MaxHeight="40"/>
-        <ComboBox  materialDesign:HintAssist.Hint="Имя клиента" x:Name="CmBoxClientName" Grid.Row="0" Grid.Column="1" FontSize="23"
-				  Background="#ffdadada" Margin="15 0 3 0" MaxHeight="40"/>
-        <ComboBox  materialDesign:HintAssist.Hint="Отчество клиента" x:Name="CmBoxClientMiddlName" Grid.Row="0" Grid.Column="2" FontSize="23"
-				  Background="#ffdadada" Margin="15 0 3 0" MaxHeight="40"/>
-        <ComboBox  materialDesign:HintAssist.Hint="Фамилия врача" x:Name="CmBoxDoctor" Grid.Row="0" Grid.Column="3" FontSize="23"
-				  Background="#ffdadada" Margin="15 0 3 0" MaxHeight="40" />
-        <ComboBox  materialDesign:HintAssist.Hint="Выберите дату" x:Name="CmBoxDate" Grid.Row="0" Grid.Column="4" FontSize="23"
-				  Background="#ffdadada" Margin="15 0 3 0" MaxHeight="40" />
-        <ComboBox  materialDesign:HintAssist.Hint="Выберите время" x:Name="CmBoxTime" Grid.Row="0" Grid.Column="5" FontSize="23"
-				  Background="#ffdadada" Margin="15 0 3 0" MaxHeight="40" />
-        
-        <Button x:Name="UpdateBtn"  Grid.Column="6" Grid.Row="2" Grid.RowSpan="2" Margin="2 0 0 50" Content="Обновить" BorderBrush="Black" Foreground ="Black" Background="LightGreen" Cursor="Hand" Height="40" FontSize="25" Click="UpdateBtn_Click"/>
+        <Button x:Name="FindBtn"  Grid.Column="6" Grid.Row="0" Grid.RowSpan="2" Margin="2 50 50 0" Content="Найти" BorderBrush="Black" Background="LightGreen" Foreground ="Black" Cursor="Hand" Height="40" FontSize="25"  Click="UpdateBtn_Click"/>
+        <TextBox  materialDesign:HintAssist.Hint="Клиент" x:Name="SortClientSurname" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="23"
+				  Background="#ffdadada" Margin="35 0 3 0" MaxHeight="40" Width="440" />
+
+        <ComboBox  materialDesign:HintAssist.Hint="Фамилия врача" x:Name="SortDoctorSurname" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" FontSize="23" HorizontalAlignment="Left"
+				  Background="#ffdadada" Margin="140 0 3 0" MaxHeight="40" Width="240" />
+        <DatePicker  materialDesign:HintAssist.Hint="Выберите дату" x:Name="SortDate" Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="2" FontSize="23" HorizontalAlignment="Left"
+				  Background="#ffdadada" Margin="155 0 3 0" MaxHeight="40" Width="200" />
+
+        <Button x:Name="ClearBtn"  Grid.Column="6" Grid.Row="2" Grid.RowSpan="2" Margin="2 0 50 70" Content="Очистить поиск" BorderBrush="Black" Foreground ="Black" Background="LightGreen" Cursor="Hand" Height="40" FontSize="25" Click="ClearBtn_Click"/>
+
+        <Button x:Name="UpdateBtn"  Grid.Column="6" Grid.Row="3" Grid.RowSpan="2" Margin="2 0 50 50" Content="Обновить" BorderBrush="Black" Foreground ="Black" Background="LightGreen" Cursor="Hand" Height="40" FontSize="25" Click="UpdateBtn_Click"/>
         <DataGrid x:Name="AllAppointment" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="6" Grid.RowSpan="14" AutoGenerateColumns="False" ItemsSource="{Binding}"
 				  Margin="20,0,47,20" FontSize="35" BorderThickness="1" FontFamily="Times New Roman" IsReadOnly="True" SelectionMode="Single" 
-				  SelectionUnit="FullRow" CanUserResizeColumns="False" CanUserReorderColumns="False" SelectionChanged="AllAppointment_SelectionChanged">
+				  SelectionUnit="FullRow" CanUserResizeColumns="False" CanUserReorderColumns="False"  SelectionChanged="AllAppointment_SelectionChanged">
 
             <DataGrid.CellStyle>
                 <Style TargetType="DataGridCell">
@@ -69,19 +66,22 @@
             </DataGrid.CellStyle>
 
             <DataGrid.Columns>
-                <DataGridTextColumn  Header="Фамилия" Width="250" Binding="{Binding Path=Surname }" />
-                <DataGridTextColumn  Header="Имя" Width="200" Binding="{Binding Path=Name }" />
-                <DataGridTextColumn  Header="Отчество" Width="250" Binding="{Binding Path=MiddlName }" />
-                <DataGridTextColumn  Header="Фамилия Врача" Width="300" Binding="{Binding Path=SurnameDoc }" />
-                <DataGridTextColumn  Header="Дата" Width="180" Binding="{Binding Path=DateP }" />
-                <DataGridTextColumn  Header="Время" Width="180" Binding="{Binding Path=TimeP }" />
-                <DataGridTextColumn Header="Сумма" Width="230" Binding="{Binding Path=Sum }" />
+                <DataGridTextColumn  Header="Клиет" Width="650" Binding="{Binding  Path=Client.GetFullName }" />
+                <DataGridTextColumn  Header="Фамилия Врача" Width="300" Binding="{Binding Path=Personal.Surname }" />
+                <DataGridTextColumn  Header="Дата" Width="200" Binding="{Binding Path=GetDateOfAppointment }" />
+                <DataGridTextColumn  Header="Время" Width="180" Binding="{Binding Path=GetTimeOfAppointment }" />
+                <DataGridTextColumn Header="Сумма" Width="200" Binding="{Binding Path=Sum }" />
             </DataGrid.Columns>
             <DataGrid.ItemContainerStyle>
                 <Style TargetType="DataGridRow">
 
                 </Style>
             </DataGrid.ItemContainerStyle>
+            <DataGrid.DataContext>
+                <entity:Reception>
+
+                    </entity:Reception>
+            </DataGrid.DataContext>
 
 
         </DataGrid>

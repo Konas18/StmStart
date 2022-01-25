@@ -4,6 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StmStart"
+              xmlns:entity ="clr-namespace:StmStartBibl;assembly=StmStartBibl"
+
         x:Name="mainWindow"
         mc:Ignorable="d"        
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
@@ -27,16 +29,20 @@
             </DataGrid.CellStyle>
 
             <DataGrid.Columns>
-                <DataGridTextColumn  Header="Номер зуба" Width="250" Binding="{Binding Path=ToothNumber }" />
-                <DataGridTextColumn  Header="Услуга" Width="600" Binding="{Binding Path=Service }"  />
-                <DataGridTextColumn  Header="Дата" Width="270" Binding="{Binding Path=DateService }" />
+                <DataGridTextColumn  Header="Номер зуба" Width="210" Binding="{Binding Path=ToothNumber }" />
+                <DataGridTextColumn  Header="Услуга" Width="500" Binding="{Binding Path=Services.Services_name }"  />
+                <DataGridTextColumn  Header="Дата" Width="250" Binding="{Binding Path=GetDateOfAppointment }" />
             </DataGrid.Columns>
             <DataGrid.ItemContainerStyle>
                 <Style TargetType="DataGridRow">
 
                 </Style>
             </DataGrid.ItemContainerStyle>
+            <DataGrid.DataContext>
+                <entity:Tooth_History>
 
+                    </entity:Tooth_History>
+            </DataGrid.DataContext>
 
         </DataGrid>
     </Grid>
