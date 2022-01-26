@@ -4,12 +4,12 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using StmStartBibl;
 
-namespace StmStart
+namespace StmStart.Doctor
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class DoctorWindow : Window
     {
         public Page NewClientPage;
         public Page AllClientPage;
@@ -17,7 +17,7 @@ namespace StmStart
         public Page NewEmployeePage;
         public Page AllEmployeePage;
         public static Personal person;
-        public MainWindow(Personal personal)
+        public DoctorWindow(Personal personal)
         {
             InitializeComponent();
             person = personal;
@@ -38,7 +38,6 @@ namespace StmStart
             NewClientBtn.BorderBrush = Brushes.Black;
             AllClientBtn.BorderBrush = Brushes.Red;
             AppointmentBtn.BorderBrush = Brushes.Black;
-            AllEmployeeBtn.BorderBrush = Brushes.Black;
         }
         private void ButtonClickNewClient(object sender, RoutedEventArgs e)
         {
@@ -46,7 +45,6 @@ namespace StmStart
             NewClientBtn.BorderBrush = Brushes.Red;
             AllClientBtn.BorderBrush = Brushes.Black;
             AppointmentBtn.BorderBrush = Brushes.Black;
-            AllEmployeeBtn.BorderBrush = Brushes.Black;
         }
 
 
@@ -56,7 +54,6 @@ namespace StmStart
             NewClientBtn.BorderBrush = Brushes.Black;
             AllClientBtn.BorderBrush = Brushes.Black;
             AppointmentBtn.BorderBrush = Brushes.Red;
-            AllEmployeeBtn.BorderBrush = Brushes.Black;
         }
 
         private void ButtonClickAllEmployee(object sender, RoutedEventArgs e)
@@ -65,7 +62,6 @@ namespace StmStart
             NewClientBtn.BorderBrush = Brushes.Black;
             AllClientBtn.BorderBrush = Brushes.Black;
             AppointmentBtn.BorderBrush = Brushes.Black;
-            AllEmployeeBtn.BorderBrush = Brushes.Red;
         }
     }
 }

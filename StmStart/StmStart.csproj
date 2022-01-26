@@ -27,4 +27,11 @@
 	  <ProjectReference Include="..\StmStartBibl\StmStartBibl.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Page Update="Admin\AdminWindow.xaml">
+	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+	    <SubType>Designer</SubType>
+	  </Page>
+	</ItemGroup>
+
 </Project>

@@ -3,6 +3,9 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
+using StmStart.Doctor;
+using StmStart.Admin;
+
 
 
 namespace StmStart
@@ -25,17 +28,17 @@ namespace StmStart
                 switch (personal.PostName)
                 {
                     case "Админ":
-                        MainWindow mainWindow1 = new MainWindow(personal);
+                        AdminWindow mainWindow1 = new AdminWindow(personal);
                         mainWindow1.Show();
                         this.Close();
                         break;
                     case "Врач":
-                        MainWindow mainWindow2 = new MainWindow(personal);
+                        DoctorWindow mainWindow2 = new DoctorWindow(personal);
                         mainWindow2.Show();
                         this.Close();
                         break;
                     case "Мед сестра":
-                        MainWindow mainWindow3 = new MainWindow(personal);
+                        AdminWindow mainWindow3 = new AdminWindow(personal);
                         mainWindow3.Show();
                         this.Close();
                         break;

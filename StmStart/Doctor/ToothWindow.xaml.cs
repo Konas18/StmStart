@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 
-namespace StmStart.Admin
+namespace StmStart.Doctor
 {
     /// <summary>
     /// Логика взаимодействия для ToothWindow.xaml

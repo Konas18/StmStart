@@ -14,7 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using StmStartBibl;
 
-namespace StmStart.Admin
+namespace StmStart.Doctor
 {
     /// <summary>
     /// Логика взаимодействия для NewAppointmentPage.xaml
@@ -60,7 +60,7 @@ namespace StmStart.Admin
             reception.Sum = Sum;
             reception.DateTimeService = DateTime.Now;
             reception.Client = _client;
-            reception.Personal = MainWindow.person;
+            reception.Personal = DoctorWindow.person;
             Reception.Add(reception);
             MessageBox.Show("Приём добавлен");
         }

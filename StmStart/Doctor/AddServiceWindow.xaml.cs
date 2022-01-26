@@ -3,7 +3,7 @@ using System;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace StmStart.Admin
+namespace StmStart.Doctor
 {
     /// <summary>
     /// Логика взаимодействия для AddServiceWindow.xaml

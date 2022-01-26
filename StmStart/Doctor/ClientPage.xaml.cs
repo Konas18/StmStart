@@ -14,7 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using StmStartBibl;
 
-namespace StmStart.Admin
+namespace StmStart.Doctor
 {
     /// <summary>
     /// Логика взаимодействия для ClientPage.xaml

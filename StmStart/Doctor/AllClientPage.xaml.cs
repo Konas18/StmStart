@@ -5,7 +5,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace StmStart.Admin
+namespace StmStart.Doctor
 {
     /// <summary>
     /// Логика взаимодействия для AllClientPage.xaml

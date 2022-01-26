@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 using StmStart;
 using StmStartBibl;
 
-namespace StmStart.Admin
+namespace StmStart.Doctor
 {
     /// <summary>
     /// Логика взаимодействия для AppointmentPage.xaml
