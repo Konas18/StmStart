@@ -73,7 +73,7 @@
         <Button x:Name="RemovePasswordBtn" Grid.Column="5" Grid.Row="4" Grid.ColumnSpan="3" Grid.RowSpan="2" Content="Изменить пароль" Width="350" Height="50" FontFamily="Arial Bold" FontSize="30" BorderThickness="2" BorderBrush="White" Background="Green" Cursor="Hand" Foreground="White"  Click="RemovePasswordBtn_Click" />
 
         <Button x:Name="SaveBtn" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="3" Grid.RowSpan="2" Content="Сохранить" Width="250" Height="50" FontFamily="Arial Bold" FontSize="30" BorderThickness="2" BorderBrush="White" Background="Green" Cursor="Hand" Foreground="White"  Click="SaveBtn_Click" Margin="195,10,195,42"/>
-        <Button x:Name="DeleteBtn" Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="3" Grid.RowSpan="2" Content="Удалить" Width="250" Height="50" FontFamily="Arial Bold" FontSize="30" BorderThickness="2" BorderBrush="White" Background="Green" Cursor="Hand" Foreground="White"  Margin="195,10,195,42"/>
+        <Button x:Name="DeleteBtn" Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="3" Grid.RowSpan="2" Content="Удалить" Width="250" Height="50" FontFamily="Arial Bold" FontSize="30" BorderThickness="2" BorderBrush="White" Background="Green" Cursor="Hand" Foreground="White" Click="DeleteBtn_Click" Margin="195,10,195,42"/>
         <Button x:Name="BackBtn" Grid.Column="3" Grid.Row="6" Grid.ColumnSpan="3" Grid.RowSpan="2" Content="Вернутся" Width="250" Height="50" FontFamily="Arial Bold" FontSize="30" BorderThickness="2" BorderBrush="White" Background="Green" Cursor="Hand" Foreground="White" Click="BackBtn_Click" Margin="195,30,195,42"/>
         
 

@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using StmStartBibl;
 
 namespace StmStart.Admin
@@ -30,36 +20,36 @@ namespace StmStart.Admin
         {
 
             var Personal = new Personal();
-            if ((PhoneBox.Text == "") && (PhoneBox.Text.Length != 12)) return;
+            if ((PhoneBox.Text == "") && (PhoneBox.Text.Length != 12)) { MessageBox.Show("Должы быть заполены все поля!"); return; }
             Personal.Phone = PhoneBox.Text;
 
-            if (SurnameBox.Text == "") return;
+            if (SurnameBox.Text == "") { MessageBox.Show("Должы быть заполены все поля!"); return; }
             Personal.Surname = SurnameBox.Text;
 
-            if (NameBox.Text == "") return;
+            if (NameBox.Text == "") { MessageBox.Show("Должы быть заполены все поля!"); return; }
             Personal.Name = NameBox.Text;
 
-            if (LastnameBox.Text == "") return;
+            if (LastnameBox.Text == "") { MessageBox.Show("Должы быть заполены все поля!"); return; }
             Personal.Lastname = LastnameBox.Text;
 
-            if (PasportBox.Text == "") return;
+            if (PasportBox.Text == "") { MessageBox.Show("Должы быть заполены все поля!"); return; }
             Personal.Pasport = PasportBox.Text;
 
-            if (DateOfBirthBox.SelectedDate is null) return;
+            if (DateOfBirthBox.SelectedDate is null) { MessageBox.Show("Должы быть заполены все поля!"); return; }
             Personal.Date_of_birth = DateOfBirthBox.SelectedDate.Value;
 
-            if (DateOfBirthBox.SelectedDate is null) return;
+            if (DateOfBirthBox.SelectedDate is null) { MessageBox.Show("Должы быть заполены все поля!"); return; }
             Personal.Addres = AdresBox.Text;
 
-            if (ExperienceBox.Text == "") return;
+            if (ExperienceBox.Text == "") { MessageBox.Show("Должы быть заполены все поля!"); return; }
             Personal.Experience = int.Parse(ExperienceBox.Text);
 
             Personal.PostName = PostCmBox.Text;
 
-            if (LoginBox.Text == "") return;
+            if (LoginBox.Text == "") { MessageBox.Show("Должы быть заполены все поля!"); return; }
             Personal.Login = LoginBox.Text;
 
-            if ((PasswordBox.Password == "") || (RepitPasswordBox.Password != RepitPasswordBox.Password)) return;
+            if ((PasswordBox.Password == "") || (RepitPasswordBox.Password != RepitPasswordBox.Password)) { MessageBox.Show("Должы быть заполены все поля!"); return; }
             Personal.Password = PasswordBox.Password;
 
             Personal.Add(Personal);
@@ -69,6 +59,7 @@ namespace StmStart.Admin
         {
             Content = null;
         }
+
         private void textBox_OnTextChanged(object sender, TextChangedEventArgs e)
         {
             var textBox = sender as TextBox;

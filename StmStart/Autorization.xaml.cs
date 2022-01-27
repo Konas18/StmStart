@@ -37,11 +37,6 @@ namespace StmStart
                         mainWindow2.Show();
                         this.Close();
                         break;
-                    case "Мед сестра":
-                        AdminWindow mainWindow3 = new AdminWindow(personal);
-                        mainWindow3.Show();
-                        this.Close();
-                        break;
                     default:
                         MessageBox.Show("Сотруднику не задана роль, текущая: " + personal.PostName);
                         break;

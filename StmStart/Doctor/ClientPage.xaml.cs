@@ -1,17 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using StmStartBibl;
 
 namespace StmStart.Doctor
@@ -58,25 +49,25 @@ namespace StmStart.Doctor
         }
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
-            if ((PhoneBox.Text == "") && (PhoneBox.Text.Length != 12)) return;
+            if ((PhoneBox.Text == "") && (PhoneBox.Text.Length != 12)) { MessageBox.Show("Должы быть заполены все поля!"); return; }
             _client.Phone = PhoneBox.Text;
 
-            if (SurnameBox.Text == "") return;
+            if (SurnameBox.Text == "") { MessageBox.Show("Должы быть заполены все поля!"); return; }
             _client.Surname = SurnameBox.Text;
 
-            if (NameBox.Text == "") return;
+            if (NameBox.Text == "") { MessageBox.Show("Должы быть заполены все поля!"); return; }
             _client.Name = NameBox.Text;
 
-            if (LastnameBox.Text == "") return;
+            if (LastnameBox.Text == "") { MessageBox.Show("Должы быть заполены все поля!"); return; }
             _client.Lastname = LastnameBox.Text;
 
-            if (PasportBox.Text == "") return;
+            if (PasportBox.Text == "") { MessageBox.Show("Должы быть заполены все поля!"); return; }
             _client.Pasport = PasportBox.Text;
 
-            if (DateOfBirthBox.SelectedDate is null) return;
+            if (DateOfBirthBox.SelectedDate is null) { MessageBox.Show("Должы быть заполены все поля!"); return; }
             _client.Date_of_birth = DateOfBirthBox.SelectedDate.Value;
 
-            if (DateOfBirthBox.SelectedDate is null) return;
+            if (DateOfBirthBox.SelectedDate is null) { MessageBox.Show("Должы быть заполены все поля!"); return; }
             _client.Addres = AdresBox.Text;
 
             _client.Medical_history = Medical_historyBox.Text  ;

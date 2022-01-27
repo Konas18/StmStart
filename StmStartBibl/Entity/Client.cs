@@ -42,6 +42,11 @@ namespace StmStartBibl
             db.Client.Add(client);
             db.SaveChanges();
         }
+        public static void Delete(Client client)
+        {
+            db.Remove(client);
+            db.SaveChanges();
+        }
         public static List<Client> GetAll()
         {
             return db.Client.ToList(); 

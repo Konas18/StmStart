@@ -41,6 +41,17 @@ namespace StmStart.Doctor
         {
             NavigationService.GoBack();
         }
+        private void DeleteBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var service = ServiceGrid.SelectedItem as Tooth_History;
+            if (service != null)
+            {
+                Sum -= service.Services.Price;
+                TotalSumBox.Text = Sum.ToString();
+                ServiceGrid.Items.Remove(service);
+                ServiceGrid.Items.Refresh();
+            }
+        }
         public void ButtonClickAddService(object sender, RoutedEventArgs e)
         {
             AddServiceWindow AddServWin = new AddServiceWindow(this);
@@ -49,6 +60,7 @@ namespace StmStart.Doctor
 
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
+            if (Sum == 0) { MessageBox.Show("Нет ни одной оказаной услуги"); return; }
             foreach (var a in ServiceGrid.Items)
             {
                 var temp = a as Tooth_History;
@@ -63,6 +75,7 @@ namespace StmStart.Doctor
             reception.Personal = DoctorWindow.person;
             Reception.Add(reception);
             MessageBox.Show("Приём добавлен");
+            ServiceGrid = null;
         }
     }
 }

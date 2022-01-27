@@ -49,6 +49,11 @@ namespace StmStartBibl
             db.Add(Personal);
             db.SaveChanges();
         }
+        public static void Delete(Personal Personal)
+        {
+            db.Remove(Personal);
+            db.SaveChanges();
+        }
         public static List<Personal> GetAll()
         {
             return db.Personal.ToList();

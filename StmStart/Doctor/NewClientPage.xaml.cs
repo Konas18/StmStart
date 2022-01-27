@@ -32,31 +32,32 @@ namespace StmStart.Doctor
         {
 
             var Client = new Client();
-            if ((PhoneBox.Text == "") && (PhoneBox.Text.Length != 12)) return;
-                Client.Phone = PhoneBox.Text;
+            if ((PhoneBox.Text == "") && (PhoneBox.Text.Length != 12)) { MessageBox.Show("Должы быть заполены все поля!"); return; }
+            Client.Phone = PhoneBox.Text;
 
-            if (SurnameBox.Text == "") return; 
+            if (SurnameBox.Text == "") { MessageBox.Show("Должы быть заполены все поля!"); return; }
             Client.Surname = SurnameBox.Text;
 
-            if (NameBox.Text == "") return; 
+            if (NameBox.Text == "") { MessageBox.Show("Должы быть заполены все поля!"); return; }
             Client.Name = NameBox.Text;
 
-            if (LastnameBox.Text == "") return;
+            if (LastnameBox.Text == "") { MessageBox.Show("Должы быть заполены все поля!"); return; }
             Client.Lastname = LastnameBox.Text;
 
-            if (PasportBox.Text == "") return;
+            if (PasportBox.Text == "") { MessageBox.Show("Должы быть заполены все поля!"); return; }
             Client.Pasport = PasportBox.Text;
 
-            if (DateOfBirthBox.SelectedDate is null) return;
+            if (DateOfBirthBox.SelectedDate is null) { MessageBox.Show("Должы быть заполены все поля!"); return; }
             Client.Date_of_birth = DateOfBirthBox.SelectedDate.Value;
 
 
-            if (AdresBox.Text == "") return;
+            if (AdresBox.Text == "") { MessageBox.Show("Должы быть заполены все поля!"); return; }
             Client.Addres = AdresBox.Text;
 
             Client.Medical_history = Medical_historyBox.Text;
 
             Client.Add(Client);
+            ClearBox();
             MessageBox.Show("Клиент добавлен");
         }
         private void textBox_OnTextChanged(object sender, TextChangedEventArgs e)
@@ -67,6 +68,17 @@ namespace StmStart.Doctor
 
             textBox.Text = text;
             textBox.CaretIndex = index;
+        }
+        private void ClearBox()
+        {
+            PhoneBox.Text = "";
+            LastnameBox.Text = "";
+            NameBox.Text = "";
+            SurnameBox.Text = "";
+            PasportBox.Text = "";
+            DateOfBirthBox.SelectedDate = null;
+            AdresBox.Text = "";
+            Medical_historyBox.Text = "";
         }
     }
 }

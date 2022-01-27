@@ -15,6 +15,8 @@ namespace StmStart.Admin
     public partial class EmployeePage : Page
     {
         private readonly char[] _phonesymb = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+
+        private Personal _personal;
         public EmployeePage(Personal personal)
         {
             _personal = personal;
@@ -31,7 +33,6 @@ namespace StmStart.Admin
             PostCmBox.Text = _personal.PostName;
             LoginBox.Text = _personal.Login;
         }
-        private Personal _personal;
         private void textBox_OnTextChanged(object sender, TextChangedEventArgs e)
         {
             var textBox = sender as TextBox;
@@ -44,30 +45,49 @@ namespace StmStart.Admin
         {
             NavigationService.GoBack();
         }
+        private void DeleteBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Personal.Delete(_personal);
+            ClearBox();
+            MessageBox.Show("Сотрудник удалён");
+        }
+        private void ClearBox()
+        {
+            PhoneBox.Text = "";
+            LastnameBox.Text = "";
+            NameBox.Text = "";
+            SurnameBox.Text = "";
+            PasportBox.Text = "";
+            DateOfBirthBox.SelectedDate = null;
+            AdresBox.Text = "";
+            ExperienceBox.Text = "";
+            PostCmBox.Text = "";
+            LoginBox.Text = "";
+        }
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
-            if ((PhoneBox.Text == "") && (PhoneBox.Text.Length != 12)) return;
+            if ((PhoneBox.Text == "") && (PhoneBox.Text.Length != 12)) { MessageBox.Show("Должы быть заполены все поля!"); return; }
             _personal.Phone = PhoneBox.Text;
 
-            if (SurnameBox.Text == "") return;
+            if (SurnameBox.Text == "") { MessageBox.Show("Должы быть заполены все поля!"); return; }
             _personal.Surname = SurnameBox.Text;
 
-            if (NameBox.Text == "") return;
+            if (NameBox.Text == "") { MessageBox.Show("Должы быть заполены все поля!"); return; }
             _personal.Name = NameBox.Text;
 
-            if (LastnameBox.Text == "") return;
+            if (LastnameBox.Text == "") { MessageBox.Show("Должы быть заполены все поля!"); return; }
             _personal.Lastname = LastnameBox.Text;
 
-            if (PasportBox.Text == "") return;
+            if (PasportBox.Text == "") { MessageBox.Show("Должы быть заполены все поля!"); return; }
             _personal.Pasport = PasportBox.Text;
 
-            if (DateOfBirthBox.SelectedDate is null) return;
+            if (DateOfBirthBox.SelectedDate is null) { MessageBox.Show("Должы быть заполены все поля!"); return; }
             _personal.Date_of_birth = DateOfBirthBox.SelectedDate.Value;
 
-            if (DateOfBirthBox.SelectedDate is null) return;
+            if (DateOfBirthBox.SelectedDate is null) { MessageBox.Show("Должы быть заполены все поля!"); return; }
             _personal.Addres = AdresBox.Text;
 
-            if (ExperienceBox.Text == "") return;
+            if (ExperienceBox.Text == "") { MessageBox.Show("Должы быть заполены все поля!"); return; }
             _personal.Experience = int.Parse(ExperienceBox.Text);
 
             Personal.Save();
@@ -83,7 +103,7 @@ namespace StmStart.Admin
             { MessageBox.Show("Неверно введён пароль"); return; }
             _personal.Password = GetHash(NewPasswordBox.Password);
             Personal.Save();
-            MessageBox.Show("Пароль изменён"); return;
+            MessageBox.Show("Пароль изменён"); 
         }
         private static string GetHash(string input)
         {
