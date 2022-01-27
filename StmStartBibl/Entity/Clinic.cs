@@ -6,6 +6,7 @@ namespace StmStartBibl
     {
         private static ApplicationContext db = Context.Db;
         public int ID { get; set; }
+
         private string address_name;
         public string Address { get { return address_name; } set { address_name = value; } }
 

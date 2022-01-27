@@ -14,6 +14,16 @@ namespace StmStartBibl
         public virtual Personal Personal { get; set; }
 
         private static ApplicationContext db = Context.Db;
+
+        public Сontract()
+        { }
+        public Сontract (string Number_contract, DateTime Date_contract, Client Client, Personal Personal)
+        {
+            this.Number_contract = Number_contract;
+            this.Date_contract = Date_contract;
+            this.Client = Client;
+            this.Personal = Personal;
+        }
         public static void Add(Сontract Сontract)
         {
             db.Add(Сontract);

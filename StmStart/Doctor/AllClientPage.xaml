@@ -76,9 +76,21 @@
                 <DataGridTextColumn  Header="Фамилия" Width="220" Binding="{Binding Path=Surname}" />
                 <DataGridTextColumn  Header="Имя" Width="220" Binding="{Binding Path=Name }" />
                 <DataGridTextColumn  Header="Отчество" Width="230" Binding="{Binding Path=Lastname }" />
-                <DataGridTextColumn  Header="Дата рождения" Width="300" Binding="{Binding Path=GetDate_of_birth }" />
+                <DataGridTextColumn  Header="Дата рождения" Width="300" Binding="{Binding Path=GetDate_of_birth }" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.HorizontalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
                 <DataGridTextColumn  Header="Номер Паспорта" Width="300" Binding="{Binding Path=Pasport }" />
-                <DataGridTextColumn  Header="Номер мед. книги" Width="320" Binding="{Binding Path=ID }" />
+                <DataGridTextColumn  Header="Номер мед. книги" Width="320" Binding="{Binding Path=ID }" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.HorizontalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
             </DataGrid.Columns>
             
             <DataGrid.ItemContainerStyle>

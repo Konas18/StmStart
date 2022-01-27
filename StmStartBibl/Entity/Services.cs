@@ -14,7 +14,6 @@ namespace StmStartBibl
 
         private decimal price;
         public decimal Price { get { return price; } set { price = value; } }
-
         public virtual Material Material { get; set; }
         public virtual Clinic Clinic { get; set; }
 
